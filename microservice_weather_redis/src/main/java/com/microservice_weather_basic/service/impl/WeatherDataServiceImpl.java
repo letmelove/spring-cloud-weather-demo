@@ -25,7 +25,7 @@ public class WeatherDataServiceImpl implements WeatherDataService {
 	private String url;
 	private WeatherResponse wr;
 	//redis超时时间
-	private static final long TIME_OUT = 10L;
+	private static final long TIME_OUT = 1800L;
 
 	@Autowired
 	private RestTemplate resttemplate;
