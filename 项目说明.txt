@@ -1,0 +1,4 @@
+microservice_weather_basic：实现获取天气数据
+microservice_weather_redis：在basic项目的基础上增加reids技术
+microservice_weather_quartz：在redis项目的基础上增加定时器，实现每隔30分钟重新获取天气数据到redis中
+microservice_weather_report：在quartz项目上增加用户界面
