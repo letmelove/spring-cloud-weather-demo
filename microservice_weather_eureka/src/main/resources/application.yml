@@ -1,0 +1,12 @@
+server:
+  port: 8000
+  
+eureka.client:
+#是否需要将本应用注册到注册中心中
+  registerWithEureka: false
+#是否从注册中心中获取注册信息
+  fetchRegistry: false
+#客户端和服务端进行交互的地址
+  serviceUrl:
+    defaultZone: http://127.0.0.1:${server.port}/eureka/
+    
