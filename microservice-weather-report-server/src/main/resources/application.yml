@@ -1,9 +1,21 @@
 server:
-  port: 8082
+  port: 8004
 spring:
   thymeleaf:
+    #热部署静态文件
     cache: false
+  application:
+    name: report-sever
   mvc:
     view:
       prefix: /
       suffix: .html
+      
+eureka.client:
+#是否需要将本应用注册到注册中心中
+  registerWithEureka: false
+#是否从注册中心中获取注册信息
+  fetchRegistry: true
+#客户端和服务端进行交互的地址
+  serviceUrl:
+    defaultZone: http://127.0.0.1:8000/eureka/

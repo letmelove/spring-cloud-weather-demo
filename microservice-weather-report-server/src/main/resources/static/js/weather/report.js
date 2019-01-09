@@ -4,7 +4,7 @@
 $(function(){
 	$("#selectCityId").change(function(){
 		var cityId = $("#selectCityId").val();
-		var url = '/report/citydata/'+cityId;
+		var url = '/report/citydata?citys='+cityId;
 		window.location.href = url;
 	})
 })
