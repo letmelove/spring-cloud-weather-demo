@@ -4,16 +4,29 @@ import java.util.List;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.microservice_weather_basic.pojo.City;
+import com.microservice_weather_basic.pojo.WeatherResponse;
 
 /**
- * 通过城市微服务获取城市列表
+ * 获取城市数据和天气数据
  * @author tangxiao
  *
  */
-@FeignClient("weather-city-server")
-public interface CityClient {
-	@GetMapping("/citys")
+@FeignClient("weather-zuul")
+public interface DataClient {
+	/**
+	 * 获取城市列表
+	 * @return
+	 */
+	@GetMapping("/city/citys")
 	List<City> listCity();
+	/**
+	 * 根据城市id查询天气数据
+	 * @param city
+	 * @return
+	 */
+	@GetMapping("/data/weather/citydata/{city}")
+	WeatherResponse getDataByCityId(@PathVariable("city")String city) ;
 }
