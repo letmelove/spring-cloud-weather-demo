@@ -1,0 +1,17 @@
+server:
+  port: 8004
+spring:
+  application:
+    name: weather-zuul
+eureka.client:
+  serviceUrl:
+    defaultZone: http://127.0.0.1:8000/eureka/
+    
+zuul:
+  routes:
+    city:
+      path: /city/**
+      service-id: weather-city-server
+    data:
+      path: /data/**
+      service-id: weather-data-server
