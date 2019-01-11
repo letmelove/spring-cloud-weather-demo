@@ -19,3 +19,7 @@ eureka.client:
 #客户端和服务端进行交互的地址
   serviceUrl:
     defaultZone: http://127.0.0.1:8000/eureka/
+#默认feign的hystrix为关闭状态
+feign:
+  hystrix:
+    enabled: true

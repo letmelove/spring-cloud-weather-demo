@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.microservice_weather_basic.pojo.City;
 import com.microservice_weather_basic.pojo.WeatherResponse;
+import com.microservice_weather_basic.service.impl.DataClientFallback;
 
 /**
  * 获取城市数据和天气数据
  * @author tangxiao
  *
  */
-@FeignClient("weather-zuul")
+@FeignClient(name="weather-zuul",fallback=DataClientFallback.class)
 public interface DataClient {
 	/**
 	 * 获取城市列表

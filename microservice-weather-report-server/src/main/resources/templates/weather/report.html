@@ -21,36 +21,40 @@
 				</option>
 			</select>
 		</div>
-		<div class="row">
-			<h1 class="text-success" th:text="${report.city}">城市名称</h1>
-		</div>
-		<div class="row">
-			<p>
-			空气质量指数：<span th:text="${report.aqi}"></span>
-			</p>
-		</div>
-		<div class="row">
-			<p>
-			当前温度：<span th:text="${report.wendu}"></span>
-			</p>
-		</div>
-		<div class="row">
-			<p>
-			温馨提示：<span th:text="${report.ganmao}"></span>
-			</p>
-		</div>
-		<div class="row">
-			<div class="card border-info" th:each="farecast : ${report.forecast}">
-				<div class="card-body text-info">
-					<p class="card-text" th:text="${farecast.date}">日期</p>
-					<p class="card-text" th:text="${farecast.type}">天气类型</p>
-					<p class="card-text" th:text="${farecast.high}">最高温度</p>
-					<p class="card-text" th:text="${farecast.low}">最低温度</p>
-					<p class="card-text" th:text="${farecast.fengxiang}">风向</p>
+		<div th:if="${report}!=null">
+			<div class="row">
+				<h1 class="text-success" th:text="${report.city}">城市名称</h1>
+			</div>
+			<div class="row">
+				<p>
+					空气质量指数：<span th:text="${report.aqi}"></span>
+				</p>
+			</div>
+			<div class="row">
+				<p>
+					当前温度：<span th:text="${report.wendu}"></span>
+				</p>
+			</div>
+			<div class="row">
+				<p>
+					温馨提示：<span th:text="${report.ganmao}"></span>
+				</p>
+			</div>
+			<div class="row">
+				<div class="card border-info"
+					th:each="farecast : ${report.forecast}">
+					<div class="card-body text-info">
+						<p class="card-text" th:text="${farecast.date}">日期</p>
+						<p class="card-text" th:text="${farecast.type}">天气类型</p>
+						<p class="card-text" th:text="${farecast.high}">最高温度</p>
+						<p class="card-text" th:text="${farecast.low}">最低温度</p>
+						<p class="card-text" th:text="${farecast.fengxiang}">风向</p>
+					</div>
 				</div>
 			</div>
 		</div>
-		
+		<div th:if="${report}==null">当前天气服务不可用！</div>
+
 	</div>
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
