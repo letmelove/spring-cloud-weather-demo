@@ -11,6 +11,9 @@ import org.springframework.context.annotation.Bean;
 
 import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServlet;
 
+
+
+
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableFeignClients
@@ -21,6 +24,7 @@ public class App {
 	public static void main(String[] args) {
 		SpringApplication.run(App.class, args);
 	}
+	
 	@Bean
     public ServletRegistrationBean getServlet() {
         HystrixMetricsStreamServlet streamServlet = new HystrixMetricsStreamServlet();
@@ -29,5 +33,5 @@ public class App {
         registrationBean.addUrlMappings("/hystrix.stream");
         registrationBean.setName("HystrixMetricsStreamServlet");
         return registrationBean;
-    }      
+    }   
 }
